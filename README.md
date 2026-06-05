@@ -37,3 +37,18 @@ It focuses on creating an immersive, emotional listening experience with a glowi
 ---
 
 ## 📁 Project Structure
+Velvet-Noise/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── songs/
+│ ├── 1.mp3
+│ ├── 2.mp3
+│
+├── covers/
+│ ├── 1.jpg
+│ ├── 2.jpg
+│
+└── README.md
