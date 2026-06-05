@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelvetNoise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"><img src="logo.jpg" alt="VelvetNoise"></div>
+                <h1 class="logo-font">VelvetNoise</h1>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-compass"></i> Explore</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-list-ul"></i> Playlists</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-compact-disc"></i> Albums</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-users"></i> Artists</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-radio"></i> Radio</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-heart"></i> Liked Songs</a>
+            </nav>
+
+            <div class="library">
+                <div class="library-header">
+                    <h3>Apurwa's Library</h3>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="library-items">
+                
+                    <div class="library-item">Favorite Tracks</div>
+               
+                </div>
+            </div>
+
+            <div class="bottom-widget">
+                <div class="quote">"lost in muisc,<br>found in yourself."</div>
+                <img src="down.jpg" alt="night vibe" class="widget-img">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search for songs, artists, albums...">
+                </div>
+            </div>
+
+            <div class="banner-hero">
+                <img src="bg.jpg" alt="Cityscape View" class="banner-bg">
+                <div class="banner-overlay"></div>
+                <div class="banner-text">
+                    <h2>LOST AGAIN?</h2>
+                    <p>Press Play, Escape Everything .</p>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2>Echora- Where Silence Learns To Sing</h2>
+                <table class="recent-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>TITLE</th>
+                            <th>ARTIST</th>
+                            <th>ALBUM</th>
+                            <th></th>
+                            <th>TIME</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-body"></tbody>
+                </table>
+            </section>
+        </div>
+
+<!-- RIGHT PLAYER PANEL -->
+<aside class="now-playing-sidebar player-panel">
+
+    <div class="brand">
+        <span class="brand-icon">✧</span>
+        <span class="brand-name">Now Playing</span>
+    </div>
+
+    <div class="vinyl-stage" id="vinyl-stage">
+
+        <div class="vinyl-outer spinning" id="vinyl">
+
+            <div class="vinyl-label">
+                <img id="cover-art"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23130f1e'/%3E%3C/svg%3E"
+                    alt="Album Art">
+            </div>
+
+            <div class="vinyl-ring r1"></div>
+            <div class="vinyl-ring r2"></div>
+            <div class="vinyl-ring r3"></div>
+
+        </div>
+
+        <div class="swipe-hint swipe-hint-left" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </div>
+
+        <div class="swipe-hint swipe-hint-right" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </div>
+
+        <div class="vinyl-reflection"></div>
+
+    </div>
+
+    <div class="track-info">
+
+        <div class="track-title-row">
+
+            <div class="track-title" id="track-title">
+                Select a track
+            </div>
+
+            <button class="heart-btn player-heart visible"
+                id="player-heart-btn"
+                aria-label="Add to favorites">
+
+                <svg class="heart-icon heart-outline"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6">
+
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+
+                <svg class="heart-icon heart-filled"
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+
+            </button>
+
+        </div>
+
+        <div class="track-meta">
+            <span id="track-artist">—</span>
+            <span class="meta-dot">·</span>
+            <span id="track-album">—</span>
+        </div>
+
+    </div>
+
+    <div class="progress-section">
+
+        <div class="progress-bar-wrap">
+
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"
+                    id="progress-fill"
+                    style="width:45%;">
+                </div>
+            </div>
+
+            <input type="range"
+                class="progress-range"
+                id="seek-bar"
+                min="0"
+                max="100"
+                value="45"
+                step="0.1">
+
+        </div>
+
+        <div class="time-row">
+            <span id="time-current">1:48</span>
+            <span id="time-total">4:02</span>
+        </div>
+
+    </div>
+
+    <div class="controls">
+
+        <button class="ctrl-btn shuffle-btn" id="btn-shuffle">
+             <i class="fa-solid fa-shuffle"></i>
+        </button>
+
+        <button class="ctrl-btn" id="btn-prev">
+            <i class="fa-solid fa-backward-step"></i>
+        </button>
+
+        <button class="ctrl-btn play-btn" id="btn-play">
+            <i class="fa-brands fa-deezer"></i>
+        </button>
+
+        <button class="ctrl-btn" id="btn-next">
+            <i class="fa-solid fa-forward-step"></i>
+        </button>
+
+    </div>
+
+    <div class="autoplay-row">
+
+        <span class="autoplay-label">
+            Autoplay Next
+        </span>
+
+        <label class="toggle-switch">
+
+            <input type="checkbox"
+                id="autoplay-toggle"
+                checked>
+
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+
+        </label>
+
+    </div>
+
+    <div class="volume-row">
+       
+        <i class="fa-solid fa-headphones vol-icon"></i>
+
+        <div class="volume-bar-wrap">
+
+            <div class="volume-bar-bg">
+                <div class="volume-bar-fill"
+                    id="volume-fill"
+                    style="width:75%;">
+                </div>
+            </div>
+
+            <input type="range"
+                class="volume-range"
+                id="volume-bar"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.75">
+        
+        </div>
+
+    </div>
+
+</aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
